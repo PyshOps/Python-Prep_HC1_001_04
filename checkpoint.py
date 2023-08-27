@@ -13,8 +13,37 @@ def numeroBinario(numero):
         NumeroBinario(2) debe retornar 10
         NumeroBinario(14) debe retornar 1110
     '''
-    #Tu código aca:
-    return 'Funcion incompleta'
+    #Tu código aca:  
+    if type(numero)!=int:
+       return None
+    if numero<-1:
+       return None
+    match numero:
+      case 0:
+         return [0,0,0,0]
+      case 1:
+         return [0,0,0,1]
+      case 2:
+         return [0,0,1,0]
+      case 3:
+         return [0,0,1,1]
+      case 4:
+         return [0,1,0,0]
+      case 5:
+         return [0,1,0,1]
+      case 6:
+         return [0,1,1,0]
+      case 7:
+         return [0,1,1,1]
+    resultado=[]
+    while numero>0:
+       if numero%2==0:
+         resultado.append(0)
+       elif numero%2!=0:
+          resultado.append(1)
+       numero=numero//2
+       detalle=reversed(resultado)
+    print(list(detalle))
 
 def dividirMultiplicar(lista):
    '''
@@ -26,7 +55,22 @@ def dividirMultiplicar(lista):
    Ej: dividirMultiplicar([2,4,1,-3]): debe retornar: [2, 1, 1, -6]
    '''   
    #Tu código acá
-   return 'Funcion incompleta'
+   lista_res=[]
+   for num in lista:
+        if num==0:
+                resultado=0 
+                lista_res.append(0)
+        elif num>0 and num%2==0:
+            resultado=int(num/2)
+            lista_res.append(resultado)
+        elif num%2!=0: 
+            resultado=num
+            lista_res.append(resultado) 
+        elif num<0:
+            resultado=num*2
+            lista_res.append(resultado)
+   mostrar=reversed(lista_res)
+   return list(mostrar)
 
 def crearDiccionario(lista):
    '''
@@ -37,7 +81,28 @@ def crearDiccionario(lista):
    EJ: crearDiccionario([3,6,7,12]): debe retornar: {'multiplos3': [3, 6, 12], 'cuadrados': [9, 36, 49, 144], 'menores_promedio': [3, 6]}
    '''
    #Tu código acá
-   return 'Funcion incompleta'
+   diccionario=dict()
+   l_m3=[]
+   l_cua=[]
+   l_men=[]
+   diccionario["multiplos3"]=l_m3
+   diccionario["cuadrados"]=l_cua
+   diccionario["menores_promedio"]=l_men
+   suma=0
+   for num in lista:
+        if num%3==0:
+            l_m3.append(num)
+        cuadrados=num*num
+        l_cua.append(cuadrados)
+   for i in lista:
+        suma += i
+   divisor=int(len(lista))
+   promedio=suma/divisor
+   for num in lista:
+        if num<promedio:
+            l_men.append(num)
+   print(suma,promedio)
+   return diccionario
 
 def trianguloRectangulo(a,b,c):
    '''
@@ -47,7 +112,11 @@ def trianguloRectangulo(a,b,c):
    EJ: trianguloRectangulo(3,4,5), debe retornar True
    '''
    #Tu código acá
-   return 'Funcion incompleta'
+   if type(a)==float or type(a)==float or type(a)==float:
+        return None
+   if (a*a)+(b*b)==(c*c):
+        return True
+   else: return False
 
 def ciudadesPoblacion(diccionario):
    '''
@@ -87,4 +156,10 @@ def stringEspejo(texto):
     EJ: stringEspejo('Hoy') debe retornar nulo
     '''
     #Tu código acá
-    return 'Funcion incompleta'
+    if len(texto)>3:
+        texto.split()
+        r_text=reversed(texto)
+        a=list(r_text)
+        cadena = " ".join(a)
+        print(cadena)
+    else: return None
